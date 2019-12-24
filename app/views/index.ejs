@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contatos</title>
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="icon" href="images/faviconsannyweb.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<div class="container">
+		<div class="sino">
+			<img alt="SannyWeb" src="images/sannyweb.png">
+			<!-- <div class="erros">
+				<ul>
+					<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit</li>
+					<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit</li>
+					<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit</li>
+				</ul>
+			</div> -->
+		</div>
+		<div class="info">
+			<div class="carrol">
+				<div class="entrar">
+					<h2>Entrar</h2>
+					<form method="POST" action="validarUsuario">
+						<div class="bloco-form">
+							<label for="email">Email:</label>
+							<input type="text" name="usuario"  placeholder="Seu usuario" id="email">
+						</div>
+						<div class="bloco-form">
+							<label for="senha">Senha:</label>
+							<input type="password" name="senha" placeholder="Sua senha" id="senha">
+						</div>	
+						<div class="bloco-form">
+							<input type="button" value="Alternar" id="action1">
+							<input type="submit" value="Entrar">
+						</div>
+					</form>
+				</div>
+				<div class="cadastrar">
+					<h2>Cadastrar</h2>
+					<form method="POST" action="cadastrarUsuario">
+						<div class="bloco-form">
+							<label for="email">Email:</label>
+							<input type="text" name="usuario" placeholder="Seu usuario" id="email">
+						</div>
+						<div class="bloco-form">
+							<label for="senha">Senha:</label>
+							<input type="password" name="senha" placeholder="Sua senha" id="senha">
+						</div>	
+						<div class="bloco-form">
+							<input type="button" value="Alternar" id="action2">
+							<input type="submit" value="Cadastrar">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="js/index.js"></script>
+</body>
+</html>

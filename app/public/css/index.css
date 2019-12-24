@@ -1,0 +1,101 @@
+body{
+	margin: 0;
+}
+body * {
+	padding: 0;
+	box-sizing: border-box;
+	color: rgb(255, 255, 255);
+}
+.container {
+	width: 50vw;
+	height: 100vh;
+	margin: 0 auto;
+}
+.sino{
+	height: 40%;
+}
+.sino img{
+	display: block;
+	margin: 0 auto;
+	max-height: 200px;
+}
+.sino .erros{
+	background-color: rgb(250,50,50);
+	color: rgb(32,32,32);
+	font-weight: bold;
+	text-align: center;
+}
+.sino .erros ul li{
+	list-style: none;
+}
+.info{
+	margin-top: -50px;
+	width: 100%;
+	height: 60%;
+	overflow: hidden;
+}
+.info .carrol{
+	width: 200%;
+	display: flex;
+	transition: all 1s;
+}
+.info .carrol h2{
+	font-size: 2.2em;
+	color: rgb(124, 124, 124);
+}
+.info .entrar, .info .cadastrar{
+	width: 50%;
+	text-align: center;
+}
+.info form{
+	font-size: 1.6em;
+	font-weight: bold;
+}
+.info form .bloco-form{
+	margin: 0 auto;
+	width: 50%;
+}
+.info form label{
+	display: block;
+}
+.info form .bloco-form:nth-child(3){
+	display: flex;
+	justify-content: space-between;
+}	
+.info form input[type=text], .info form input[type=password] {
+	 width: 350px;
+	 height: 40px;
+	 font-size: 0.8em;
+}
+.info form input[type=submit], .info form input[type=button]{
+	margin-top: 20px;
+	 width: 40%;
+	 height: 40px;
+	 font-size: 0.8em;
+	 color: rgb(128, 128, 128);
+}
+.info form input[type=submit]:hover, .info form input[type=button]:hover{
+	cursor: pointer;
+}
+@media screen and (max-width: 400px){
+	.container{
+		width: 100%;
+	}
+	.info .carrol h2{
+		font-size: 1.2em;
+	}
+	.sino img{
+		max-height: 140px;
+	}
+	.info form input[type=text], .info form input[type=password] {
+	 width: 100%;
+	 height: 35px;
+	 font-size: 0.8em;
+	}
+	.info form input[type=submit], .info form input[type=button]{
+	 margin-top: 20px;
+	 width: 40%;
+	 height: 30px;
+	 font-size: 0.8em;
+	}
+}
