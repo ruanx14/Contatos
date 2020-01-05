@@ -1,0 +1,106 @@
+body{
+    margin: 0;
+}
+body *{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+.menu{
+    display: flex;
+    width: 100%;
+}
+.menu .opt{
+    width: calc(100%/3);
+    box-shadow: 3px 1px 3px rgb(78, 78, 78);
+}
+.menu .down{
+    background-color: rgb(233, 235, 235);
+    font-size: 1.5em;
+    padding: 20px;
+    border-bottom: 1px solid black;
+}
+.menu .search{
+    font-size: 1.5em;
+    border: none;
+    border-bottom: 1px solid black;
+}
+.menu .down:hover{
+    background-color: rgb(187, 190, 190);
+    cursor: pointer;
+}
+.container{
+    width: 80%;
+    margin: 5px auto;
+    height: auto;
+}
+.container .contatos{
+    width: 100%;
+    height: 30px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+}
+.container .contatos:nth-child(odd){
+    background-color:rgb(223, 223, 223);
+}
+.container .contatos:nth-child(even){
+    background-color:rgb(202, 202, 202);
+}
+.container .contatos .more{
+    flex-grow: 1;
+    text-align: center;
+}
+.container .contatos .info{
+
+}
+.container .contatos .info:hover{
+    cursor: pointer;
+}
+.container .cadastrar{
+    width: 100%;
+    background-color:rgb(223, 223, 223);
+    padding: 5px;
+}
+.container .cadastrar form{
+    display: flex;
+    flex-wrap: wrap;
+}
+.container .cadastrar .sign label{
+    font-size: 1.3em;
+    display: block;
+    padding: 5px;
+}
+.container .cadastrar .sign input[type=text]{
+    width: 400px;
+    height: 30px;
+    display: block;
+    font-size: 1.3em;
+}
+.container .cadastrar .sign{
+    width: 50%;
+}
+.container .cadastrar .sign input[type=button]{
+    margin-top: 5px;
+    font-size: 1.3em;
+    padding: 5px;
+    
+}
+.container .cadastrar form input[type=submit]{
+    padding: 20px;
+    margin: 10px auto;
+    width: 300px;
+    font-size: 1.3em;
+    border: none;
+    background-color: rgb(233, 235, 235);
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.container .cadastrar form input[type=submit]:hover{
+    background-color: rgb(187, 190, 190);
+    cursor: pointer;   
+}
+.shouldbefooter{
+    font-size: 1.5em;
+    color: rgb(87, 87, 87);
+}
