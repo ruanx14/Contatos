@@ -16,9 +16,61 @@
     <div class="opt down">Sair</div>    
 </div>
 <div class="container">
-    <img alt="SannyWeb" src="images/SannyWeb.png">
-    <p class="shouldbefooter">Este é um simples projeto de gerenciamento de Contatos trabalhando com tecnologias como NodeJS com framework Express, padrão MVC, módulos como Consign e outros, se utilizando do banco de dados MongoDB. Projeto para aperfeiçoar técnicas e aprendizados obtidos com estudo tanto front-end como back-end e a manipulação de dados com um CRUD. Feito por Ruan Barroso em nome de sua empresa SannyWeb.</p>
-</div>   
+    <div class="cadastrar">
+        <% if(adc=='sucess'){ %>
+			<div class="msg">
+				<p style="color: black; text-align: center; font-size: 1.8em; background-color: rgb(179, 248, 183);">Novo contato salvo com sucesso!</p>
+			</div>
+        <% } %>
+            
+         <% if(erros.length>0){ %>
+            <div class="erros" style="background-color: rgba(255, 172, 172); color: black; font-size: 1.4em; padding: 2px;">
+                <ul>
+                    <% for(var i=0;i<erros.length;i++){ %>
+                    <li><%=erros[i].msg%></li>
+                    <% }%>
+                </ul>
+            </div> 
+            <% }%>    
+            <form action="salvarContato" method="POST">
+                <div class="sign"><article class="side-1">
+                    <label>Nome: </label>
+                    <input type="text" name="nome" placeholder="Nome">
+                    <label>Sobrenome: </label>
+                    <input type="text" name="sobrenome" placeholder="Sobrenome">
+                    <label>Idade: </label>
+                    <input type="text" name="idade" placeholder="Idade">
+                    <label>Email: </label>
+                    <input type="text" name="email" placeholder="Email">
+                    <label>Cidade: </label>
+                    <input type="text" name="cidade" placeholder="Cidade">
+                    <label>Redes: </label>
+                    <input type="text" name="redes" placeholder="Link do Facebook, Instagram, Twitter..."></article>
+                    <input type="button" value="Adicionar outra rede social">
+                </div>
+                <div class="sign"><article class="side-2">
+                    <label>Bairro: </label>
+                    <input type="text" name="bairro" placeholder="Bairro">
+                    <label>Rua: </label>
+                    <input type="text" name="rua" placeholder="Rua">
+                    <label>Endereço: </label>
+                    <input type="text" name="endereco" placeholder="Endereço">
+                    <label>Sexo: </label>
+                    <input type="text" name="sexo" placeholder="Sexo">
+                    <label>Complementar: </label>
+                    <input type="text" name="complementar" placeholder="Complementar">
+                    <label>Numero: </label>
+                    <input type="text" name="numeros" placeholder="Numero"></article>  
+                    <input type="button" value="Adicionar outro numero">  
+                </div>
+                    <input type="submit" value="Salvar Contato">
+                </form>
+        </div>
+</div>  
+    <footer>
+        <img alt="SannyWeb" src="images/SannyWeb.png">
+        <p class="shouldbefooter">Este é um simples projeto de gerenciamento de Contatos trabalhando com tecnologias como NodeJS com framework Express, padrão MVC, módulos como Consign e outros, se utilizando do banco de dados MongoDB. Projeto para aperfeiçoar técnicas e aprendizados obtidos com estudo tanto front-end como back-end e a manipulação de dados com um CRUD. Feito por Ruan Barroso em nome de sua empresa SannyWeb.</p> 
+    </footer>
 </body>
 <script src="js/home.js"></script>
 </html>

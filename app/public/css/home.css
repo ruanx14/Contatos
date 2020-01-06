@@ -6,6 +6,9 @@ body *{
     padding: 0;
     font-family: sans-serif;
 }
+body li{
+    list-style: none;
+}
 .menu{
     display: flex;
     width: 100%;
@@ -103,4 +106,10 @@ body *{
 .shouldbefooter{
     font-size: 1.5em;
     color: rgb(87, 87, 87);
+}
+footer{
+    width: 80%;
+    margin: 5px auto;
+    height: auto;
+}
 }

@@ -12,6 +12,14 @@ module.exports.cadastrarUsuario = function(application,req,res,vr){
     }
     usuario = req.body;
     modelUsuario = new application.app.models.UsuarioDAO(application.config.conexao);
-    modelUsuario.cadastrarUsuario(usuario);
-    res.redirect('index?msg=sucess');
+    modelUsuario.cadastrarUsuario(res,usuario);
+}
+module.exports.validarUsuario = function(application,req,res,vr){
+    if(!vr.isEmpty()){
+        res.render("index",{erros : vr.array(), usuario : usuario});
+        return;
+    }
+    usuario = req.body;
+    modelUsuario = new application.app.models.UsuarioDAO(application.config.conexao);
+    modelUsuario.validarUsuario(req,res,usuario);
 }

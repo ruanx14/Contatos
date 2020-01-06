@@ -25,6 +25,16 @@
 				<p style="color: black; text-align: center; font-size: 1.8em; background-color: rgb(179, 248, 183);">Cadastramento realizado com sucesso!</p>
 			</div>
 			<% } %>
+			<% if(msg=='nouser'){ %>
+			<div class="msg">
+				<p style="color: black; text-align: center; font-size: 1.8em; background-color: rgb(252, 131, 122);">Usuário não existente e/ou senha inválida.</p>
+			</div>
+			<% } %>
+			<% if(msg=='accountwrong'){ %>
+			<div class="msg">
+				<p style="color: black; text-align: center; font-size: 1.8em; background-color: rgb(252, 131, 122);">Usuário já cadastrado. Tente outro!</p>
+			</div>
+			<% } %>
 		</div>
 		<div class="info">
 			<div class="carrol">
@@ -49,12 +59,12 @@
 					<h2>Cadastrar</h2>
 					<form method="POST" action="cadastrarUsuario">
 						<div class="bloco-form">
-							<label for="email">Email:</label>
-							<input type="text" name="usuario" placeholder="Seu usuario" id="email" value="<%=usuario.usuario%>">
+							<label for="email1">Email:</label>
+							<input type="text" name="usuario" placeholder="Seu usuario" id="email1" value="<%=usuario.usuario%>">
 						</div>
 						<div class="bloco-form">
-							<label for="senha">Senha:</label>
-							<input type="password" name="senha" placeholder="Sua senha" id="senha">
+							<label for="senha1">Senha:</label>
+							<input type="password" name="senha" placeholder="Sua senha" id="senha1">
 						</div>	
 						<div class="bloco-form">
 							<input type="button" value="Alternar" id="action2">

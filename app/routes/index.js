@@ -11,4 +11,8 @@ module.exports = function(application){
         vr = validationResult(req);
         application.app.controllers.index.cadastrarUsuario(application,req,res,vr);
     });
+    application.post('/validarUsuario',validacoes,function(req,res){
+        vr = validationResult(req);
+        application.app.controllers.index.validarUsuario(application,req,res,vr);
+    });
 }
