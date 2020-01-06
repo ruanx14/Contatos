@@ -10,13 +10,21 @@
 	<div class="container">
 		<div class="sino">
 			<img alt="SannyWeb" src="images/sannyweb.png">
-			<!-- <div class="erros">
+			<% if(erros.length>0){ %>
+			<div class="erros">
 				<ul>
-					<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit</li>
-					<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit</li>
-					<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit</li>
+					<% for(var i=0;i<erros.length;i++){ %>
+					<li><%=erros[i].msg%></li>
+					<% }%>
 				</ul>
-			</div> -->
+			</div> 
+			<% }%>
+			
+			<% if(msg=='sucess'){ %>
+			<div class="msg">
+				<p style="color: black; text-align: center; font-size: 1.8em; background-color: rgb(179, 248, 183);">Cadastramento realizado com sucesso!</p>
+			</div>
+			<% } %>
 		</div>
 		<div class="info">
 			<div class="carrol">
@@ -42,7 +50,7 @@
 					<form method="POST" action="cadastrarUsuario">
 						<div class="bloco-form">
 							<label for="email">Email:</label>
-							<input type="text" name="usuario" placeholder="Seu usuario" id="email">
+							<input type="text" name="usuario" placeholder="Seu usuario" id="email" value="<%=usuario.usuario%>">
 						</div>
 						<div class="bloco-form">
 							<label for="senha">Senha:</label>

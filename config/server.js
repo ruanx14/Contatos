@@ -1,14 +1,20 @@
 express = require('express');
 consign = require('consign');
+session = require('express-session');
+bodyparser = require('body-parser');
 
 app = express();
 app.set('view engine','ejs');
 app.set('views','./app/views');
 
 app.use(express.static('./app/public'));
-//app.use(bodyparser.urlencoded({extented: true}));
-//app.use(expressvalidator)
-//expresssession
+app.use(bodyparser.urlencoded({extended: true}));
+var jsonSession = {
+    secret : 'problem',
+    resave : false,
+    saveUninitialized : false,
+}
+app.use(session(jsonSession));
 
 consign().include('./app/routes')
 .then('./app/controllers')

@@ -1,11 +1,24 @@
-botoes = document.querySelectorAll("input[type=button]");
-botoes[0].onclick = function(){
-    info = document.querySelector('.side-1');
-    obj = info.innerHTML + '<label>Redes: </label><input type=\"text\" name=\"redes\" placeholder=\"Link do Facebook, Instagram, Twitter...\">';
-    info.innerHTML = obj;
+menu = document.querySelectorAll(".down");
+menu[0].onclick = function(){
+    var obj = new XMLHttpRequest();
+    obj.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          document.querySelector(".container").innerHTML = obj.responseText;
+      }
+    };
+   obj.open("GET", "adicionarContato", true);
+   obj.send();
 }
-botoes[1].onclick = function(){
-    info = document.querySelector('.side-2');
-    obj = info.innerHTML + '<label>Numero: </label><input type=\"text\" name=\"numeros\" placeholder=\"Outro número\">';
-    info.innerHTML = obj;
+menu[1].onclick = function(){
+    var obj = new XMLHttpRequest();
+    obj.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          document.querySelector(".container").innerHTML = obj.responseText;
+      }
+    };
+   obj.open("GET", "listarContatos", true);
+   obj.send();
+}
+menu[2].onclick = function(){
+    window.location.href = "sair"; 
 }
