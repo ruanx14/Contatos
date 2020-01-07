@@ -12,7 +12,7 @@
     <div class="opt down">Adicionar Contato</div>
     <div class="opt down">Listar contatos</div>
     <!-- <div class="opt"></div> -->
-    <input class="opt search" type='text' placeholder='Pesquisar...'>
+    <input class="opt search" type='text' placeholder='Nome, Sobrenome, Email...'>
     <div class="opt down">Sair</div>    
 </div>
 <div class="container">
@@ -20,6 +20,11 @@
         <% if(adc=='sucess'){ %>
 			<div class="msg">
 				<p style="color: black; text-align: center; font-size: 1.8em; background-color: rgb(179, 248, 183);">Novo contato salvo com sucesso!</p>
+			</div>
+        <% } %>
+        <% if(adc=='apagado'){ %>
+			<div class="msg">
+				<p style="color: black; text-align: center; font-size: 1.8em; background-color: rgb(179, 248, 183);">Contato apagado com sucesso</p>
 			</div>
         <% } %>
             
@@ -71,6 +76,46 @@
         <img alt="SannyWeb" src="images/SannyWeb.png">
         <p class="shouldbefooter">Este é um simples projeto de gerenciamento de Contatos trabalhando com tecnologias como NodeJS com framework Express, padrão MVC, módulos como Consign e outros, se utilizando do banco de dados MongoDB. Projeto para aperfeiçoar técnicas e aprendizados obtidos com estudo tanto front-end como back-end e a manipulação de dados com um CRUD. Feito por Ruan Barroso em nome de sua empresa SannyWeb.</p> 
     </footer>
+
+    <% if(maisContato==true){ %>
+        <div class="absort">
+            <div class="blow">
+                <span class="closes"><span>X</span></span>
+                <div class="satis">
+                    <div class="viewmore">
+                        <p><strong>Nome</strong>: <%=contato.nome%></p>
+                        <p><strong>Sobrenome</strong>: <%=contato.sobrenome%></p>
+                        <p><strong>Idade</strong>: <%=contato.idade%></p>
+                        <p><strong>Email</strong>: <%=contato.email%></p>
+                        <p><strong>Cidade</strong>: <%=contato.cidade%></p>
+                        <% if(Array.isArray(contato.redes)){%>
+                            <% for(var i=0;i<contato.redes.length;i++){ %>
+                                <p><strong>Redes</strong>: <%=contato.redes[i]%></p>
+                            <% } %>
+                        <% } else { %>
+                            <p><strong>Redes</strong>: <%=contato.redes%></p>
+                        <% } %>
+                    </div>
+                    <div class="viewmore">
+                        <p><strong>Bairro</strong>: <%=contato.bairro%></p>
+                        <p><strong>Rua</strong>: <%=contato.rua%></p>
+                        <p><strong>Endereço</strong>: <%=contato.endereco%></p>
+                        <p><strong>Sexo</strong>: <%=contato.sexo%></p>
+                        <p><strong>Complementar</strong>: <%=contato.complementar%></p>
+                        <% if(Array.isArray(contato.numeros)){%>
+                            <% for(var i=0;i<contato.numeros.length;i++){ %>
+                                <p><strong>Numeros</strong>: <%=contato.numeros[i]%></p>
+                            <% } %>
+                        <% } else { %>
+                            <p><strong>Numeros</strong>: <%=contato.numeros%></p>
+                        <% } %>
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% } %>
+
 </body>
 <script src="js/home.js"></script>
 </html>

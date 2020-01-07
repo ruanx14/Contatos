@@ -14,8 +14,10 @@
                 <div class="more"><%=contatos[i].sobrenome%></div>
                 <div class="more"><%=contatos[i].email%></div>
                 <div class="more"><%=contatos[i].cidade%></div>
-                <div class="more info">Ver mais</div>
-                <div class="more info">Deletar</div>
+                <a href="home?maisContato=<%=contatos[i]._id%>" id="<%=contatos[i]._id%>" class="more info">Ver Mais</a>
+                <!-- <div id="<%=contatos[i]._id%>" class="more info">Ver Mais</div> -->
+                <a href="deletar?idContato=<%=contatos[i]._id%>" class="more">Deletar</a>
         </div>
     <% } %>
 
+   

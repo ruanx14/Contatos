@@ -1,6 +1,7 @@
 botoesFuncoes();
 menu = document.querySelectorAll(".down");
 searchContato = document.querySelector(".search");
+
 searchContato.onkeyup = function(){
     pesquisa = searchContato.value;
     obj = new XMLHttpRequest();
@@ -12,6 +13,7 @@ searchContato.onkeyup = function(){
     obj.open('GET','listarContatos?search='+pesquisa,true);
     obj.send();
 }
+
 menu[0].onclick = function(){
     var obj = new XMLHttpRequest();
     obj.onreadystatechange = function() {
@@ -23,18 +25,55 @@ menu[0].onclick = function(){
    obj.open("GET", "adicionarContato", true);
    obj.send();
 }
+
 menu[1].onclick = function(){
     var obj = new XMLHttpRequest();
     obj.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-          document.querySelector(".container").innerHTML = obj.responseText;
+      if (obj.readyState == 4 && obj.status == 200) {
+        document.querySelector(".container").innerHTML = obj.responseText;
+
+            
+            /* verMais = document.querySelectorAll('.info');
+            var testeObj = new XMLHttpRequest(); 
+            for (var i=0;i<verMais.length;i++){
+                verMais[i].onclick = function(elemento){  
+                     testeObj.onreadystatechange = function() {      
+                        if (testeObj.readyState == 4 && testeObj.status == 200) {
+                            document.querySelector(".absort").onclick = function(){
+                                document.querySelector(".absort").style.display = "none";   
+                            }
+                            document.querySelector(".closes").onclick = function(){
+                                document.querySelector(".absort").style.display = "none";   
+                            }
+                            document.querySelector(".satis").innerHTML = testeObj.responseText;  
+                            document.querySelector(".absort").style.display = "block";     
+                        } 
+                     }    
+                     testeObj.open("GET", "maisContato?maisContato="+elemento.target.id, true);
+                     testeObj.send();                                          
+                }
+            }
+             */
+            
+
+        } 
       }
-    };
    obj.open("GET", "listarContatos", true);
    obj.send();
 }
+
 menu[2].onclick = function(){
     window.location.href = "sair"; 
+}
+window.onclick = function(event) {
+    if (event.target == document.querySelector(".absort")) {
+        document.querySelector(".absort").style.display = "none";
+    }
+}
+if(document.querySelector(".closes")!=undefined){
+    document.querySelector(".closes").onclick = function(){
+        document.querySelector(".absort").style.display = "none";   
+    }
 }
 function getValoresLeft(){
     inputs = document.querySelectorAll('.side-1 input');
@@ -108,7 +147,6 @@ function botoesFuncoes(){
         
     }
 }
-
 /* 
 
 

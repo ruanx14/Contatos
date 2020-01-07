@@ -1,0 +1,28 @@
+<div class="viewmore">
+    <p><strong>Nome</strong>: <%=contato.nome%></p>
+    <p><strong>Sobrenome</strong>: <%=contato.sobrenome%></p>
+    <p><strong>Idade</strong>: <%=contato.idade%></p>
+    <p><strong>Email</strong>: <%=contato.email%></p>
+    <p><strong>Cidade</strong>: <%=contato.cidade%></p>
+    <% if(Array.isArray(contato.redes)){%>
+        <% for(var i=0;i<contato.redes.length;i++){ %>
+            <p><strong>Redes</strong>: <%=contato.redes[i]%></p>
+        <% } %>
+    <% } else { %>
+        <p><strong>Redes</strong>: <%=contato.redes%></p>
+    <% } %>
+</div>
+<div class="viewmore">
+    <p><strong>Bairro</strong>: <%=contato.bairro%></p>
+    <p><strong>Rua</strong>: <%=contato.rua%></p>
+    <p><strong>Endereço</strong>: <%=contato.endereco%></p>
+    <p><strong>Sexo</strong>: <%=contato.sexo%></p>
+    <p><strong>Complementar</strong>: <%=contato.complementar%></p>
+    <% if(Array.isArray(contato.numeros)){%>
+        <% for(var i=0;i<contato.numeros.length;i++){ %>
+            <p><strong>Numeros</strong>: <%=contato.numeros[i]%></p>
+        <% } %>
+    <% } else { %>
+        <p><strong>Numeros</strong>: <%=contato.numeros%></p>
+    <% } %>
+</div>

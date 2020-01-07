@@ -73,6 +73,30 @@ UsuarioDAO.prototype.listarContatos = function(req,res,usuario){
         }
     });
 }
+UsuarioDAO.prototype.deletar = function(res,idContato,ObjectId){
+    this._conexao.connect('mongodb://localhost:27017/contatos',{useNewUrlParser : true, useUnifiedTopology : true},function(err,client){
+        db = client.db('contatos');
+        db.collection('contato').deleteOne({_id : ObjectId(idContato)}).then(function(erro,result){
+            res.redirect('home?adc=apagado');
+        });
+    });
+}
+
+UsuarioDAO.prototype.maisContato = function(res,idContato,ObjectId,qualModo){
+    this._conexao.connect('mongodb://localhost:27017/contatos',{useNewUrlParser : true, useUnifiedTopology : true},function(err,client){
+        db = client.db('contatos');
+        if(qualModo==true){
+            db.collection('contato').find({_id : ObjectId(idContato)}).toArray(function(err,result){
+                res.render('maisContato',{erros : [],adc : '', maisContato : true, contato : result[0]});
+            });
+        }else{
+            db.collection('contato').find({_id : ObjectId(idContato)}).toArray(function(err,result){
+                res.render('home',{erros : [],adc : '', maisContato : true, contato : result[0]});
+            });
+        }
+
+    });
+}
 module.exports = function(){
     return UsuarioDAO;
 }
