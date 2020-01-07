@@ -51,8 +51,9 @@ body li{
     background-color:rgb(202, 202, 202);
 }
 .container .contatos .more{
-    flex-grow: 1;
+    width: calc(100%/6);
     text-align: center;
+
 }
 .container .contatos .info{
 
@@ -112,4 +113,4 @@ footer{
     margin: 5px auto;
     height: auto;
 }
-}
+

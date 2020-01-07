@@ -10,7 +10,11 @@ module.exports.contatos = function(application,req,res){
     }
 }
 module.exports.adicionarContato = function(application,req,res){
-    res.render('cadastrarContato');
+    if(!req.session.acesso){
+        res.redirect('index');
+    }else{
+        res.render('cadastrarContato');
+    }
 }
 module.exports.salvarContato = function(application,req,res,vr){
    if(!vr.isEmpty()){
@@ -22,8 +26,14 @@ module.exports.salvarContato = function(application,req,res,vr){
    modelUsuario = new application.app.models.UsuarioDAO(application.config.conexao);
    modelUsuario.adicionarContato(res,contato);
 }
-module.exports.listarContatos = function(app,req,res){
-    res.render('listarContatos');
+module.exports.listarContatos = function(application,req,res){
+    if(!req.session.acesso){
+        res.redirect('index');
+    }else{
+        modelUsuario = new application.app.models.UsuarioDAO(application.config.conexao);
+        usuario = req.session.usuario
+        modelUsuario.listarContatos(req,res,usuario);
+    }
 }
 module.exports.sair = function(app,req,res){
     req.session.destroy(function(err){

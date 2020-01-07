@@ -1,7 +1,21 @@
+<% if(contatos.length>0) { %>
 <div class="contatos">
     <div class="more">Nome</div>
+    <div class="more">Sobrenome</div>
     <div class="more">Email</div>
-    <div class="more">Número</div>
-    <div class="more info">Ver mais</div>
-    <div class="more info">Deletar</div>
+    <div class="more">Cidade</div>
+    <div class="more"> </div>
+    <div class="more"> </div>
 </div>
+<% } %>
+    <% for(var i=0;i<contatos.length;i++) { %>  
+        <div class="contatos"> 
+                <div class="more"><%=contatos[i].nome%></div>
+                <div class="more"><%=contatos[i].sobrenome%></div>
+                <div class="more"><%=contatos[i].email%></div>
+                <div class="more"><%=contatos[i].cidade%></div>
+                <div class="more info">Ver mais</div>
+                <div class="more info">Deletar</div>
+        </div>
+    <% } %>
+

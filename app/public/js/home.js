@@ -1,5 +1,17 @@
 botoesFuncoes();
 menu = document.querySelectorAll(".down");
+searchContato = document.querySelector(".search");
+searchContato.onkeyup = function(){
+    pesquisa = searchContato.value;
+    obj = new XMLHttpRequest();
+    obj.onreadystatechange = function(){
+        if(this.readyState==4){
+            document.querySelector(".container").innerHTML = obj.responseText;
+        }
+    }
+    obj.open('GET','listarContatos?search='+pesquisa,true);
+    obj.send();
+}
 menu[0].onclick = function(){
     var obj = new XMLHttpRequest();
     obj.onreadystatechange = function() {
@@ -96,3 +108,24 @@ function botoesFuncoes(){
         
     }
 }
+
+/* 
+
+
+db.contato.find({   $or:[  {nome : /^a/},{email : /^a/},{sobrenome : /^a/}   ]    });
+
+db.things.find( {
+    $and : [
+             { 
+               $or : [ 
+                       {"first_name" : "john"},
+                       {"last_name" : "john"}
+                     ]
+             },
+             { 
+               "Phone":"12345678"
+             }
+           ]
+  } ) 
+  
+  */

@@ -44,6 +44,35 @@ UsuarioDAO.prototype.adicionarContato = function(res,contato){
         });
     });
 }
+UsuarioDAO.prototype.listarContatos = function(req,res,usuario){
+    this._conexao.connect('mongodb://localhost:27017/contatos',{useNewUrlParser : true, useUnifiedTopology : true},function(err,client){
+        db = client.db('contatos');
+        if(req.query.search=='' || req.query.search==undefined){
+            db.collection('contato').find({usuario : usuario}).toArray((err,result) => {
+                res.render('listarContatos',{contatos : result});
+            });
+        }else{
+            pesquisa = req.query.search;
+            reg = new RegExp(`${pesquisa}`, 'i');
+            db.collection('contato').find({
+                $and : [
+                         { 
+                           $or : [ 
+                                   {nome : reg},
+                                   {sobrenome : reg},
+                                   {email : reg}
+                                 ]
+                         },
+                         { 
+                           usuario : usuario
+                         }
+                       ]
+              }).toArray((err,result) => {
+                res.render('listarContatos',{contatos : result});
+            }); 
+        }
+    });
+}
 module.exports = function(){
     return UsuarioDAO;
 }
