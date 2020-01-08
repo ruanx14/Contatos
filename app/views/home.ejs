@@ -94,38 +94,38 @@
             <div class="blow">
                 <span class="closes"><span>X</span></span>
                 <input class="newbtsout" type="button" value="Deseja editar? Clique aqui">
-                <form action="editarContato?maisContato=<%=contato._id%>" method="POST" class="satis">
+                <form action="editarContato" method="POST" class="satis">
                     <div class="viewmore">
                         <p><strong>Nome</strong>: <input disabled type="text" class="advante" name="nome" value="<%=contato.nome%>"></p>
-                        <p><strong>Sobrenome</strong>: <input disabled type="text" class="advante" name="sobrenome" value="<%=contato.sobrenome%>"</p>
-                        <p><strong>Idade</strong>: <input disabled type="text" class="advante" name="idade" value="<%=contato.idade%>"</p>
-                        <p><strong>Email</strong>: <input disabled type="text" class="advante" name="email" value="<%=contato.email%>"</p>
-                        <p><strong>Cidade</strong>: <input disabled type="text" class="advante" name="cidade" value="<%=contato.cidade%>"</p>
+                        <p><strong>Sobrenome</strong>: <input disabled type="text" class="advante" name="sobrenome" value="<%=contato.sobrenome%>"></p>
+                        <p><strong>Idade</strong>: <input disabled type="text" class="advante" name="idade" value="<%=contato.idade%>"></p>
+                        <p><strong>Email</strong>: <input disabled type="text" class="advante" name="email" value="<%=contato.email%>"></p>
+                        <p><strong>Cidade</strong>: <input disabled type="text" class="advante" name="cidade" value="<%=contato.cidade%>"></p>
                         <% if(Array.isArray(contato.redes)){%>
                             <% for(var i=0;i<contato.redes.length;i++){ %>
-                                <p><strong>Redes</strong>: <input disabled type="text" class="advante" name="redes" value="<%=contato.redes[i]%>"</p>
+                                <p><strong>Redes</strong>: <input disabled type="text" class="advante" name="redes" value="<%=contato.redes[i]%>"></p>
                             <% } %>
                         <% } else { %>
-                                <p><strong>Redes</strong>: <input disabled type="text" class="advante" name="redes" value="<%=contato.redes%>"</p>
+                                <p><strong>Redes</strong>: <input disabled type="text" class="advante" name="redes" value="<%=contato.redes%>"></p>
                         <% } %>
                     </div>
                     <div class="viewmore">
-                        <p><strong>Bairro</strong>: <input disabled type="text" class="advante" name="bairro" value="<%=contato.bairro%>"</p>
-                        <p><strong>Rua</strong>: <input disabled type="text" class="advante" name="rua" value="<%=contato.rua%>"</p>
-                        <p><strong>Endereço</strong>: <input disabled type="text" class="advante" name="endereco" value="<%=contato.endereco%>"</p>
-                        <p><strong>Sexo</strong>: <input disabled type="text" class="advante" name="sexo" value="<%=contato.sexo%>"</p>
-                        <p><strong>Complementar</strong>: <input disabled type="text" class="advante" name="complementar" value="<%=contato.complementar%>"</p>
+                        <p><strong>Bairro</strong>: <input disabled type="text" class="advante" name="bairro" value="<%=contato.bairro%>"></p>
+                        <p><strong>Rua</strong>: <input disabled type="text" class="advante" name="rua" value="<%=contato.rua%>"></p>
+                        <p><strong>Endereço</strong>: <input disabled type="text" class="advante" name="endereco" value="<%=contato.endereco%>"></p>
+                        <p><strong>Sexo</strong>: <input disabled type="text" class="advante" name="sexo" value="<%=contato.sexo%>"></p>
+                        <p><strong>Complementar</strong>: <input disabled type="text" class="advante" name="complementar" value="<%=contato.complementar%>"></p>
                         <% if(Array.isArray(contato.numeros)){%>
                             <% for(var i=0;i<contato.numeros.length;i++){ %>
-                                <p><strong>Numeros</strong>: <input disabled type="text" class="advante" name="numeros" value="<%=contato.numeros[i]%>"</p>
+                                <p><strong>Numeros</strong>: <input disabled type="text" class="advante" name="numeros" value="<%=contato.numeros[i]%>"></p>
                             <% } %>
                         <% } else { %>
-                            <p><strong>Numeros</strong>: <input disabled type="text" class="advante" name="numeros" value="<%=contato.numeros%>"</p>
+                            <p><strong>Numeros</strong>: <input disabled type="text" class="advante" name="numeros" value="<%=contato.numeros%>"></p>
                         <% } %>
+                        <p><strong></strong><input type="hidden" class="advantes" name="_id" value="<%=contato._id%>"></p>
                         <input class="newbts" type="submit" value="Salvar edições!">
                     </div>
-                </form>
-                
+                </form>   
             </div>
         </div>
         <% } %>

@@ -74,11 +74,12 @@ module.exports.editarContato = function(application,req,res){
         return;
     }else{
         modelUsuario = new application.app.models.UsuarioDAO(application.config.conexao);
-        idContato = req.query.maisContato;
-        dadosNovos = req.body;
-        if(JSON.stringify(dadosNovos)==="{}"){
+        //if(JSON.stringify(req.body)==="{}"){
+        if(Object.keys(req.body).length<=3){
             res.redirect('home?adc=missdates');      
         }else{
+            idContato = req.body._id;
+            dadosNovos = req.body;
             modelUsuario.editarContato(res,dadosNovos,idContato,application.config.conexao.ObjectId);
         }
     }

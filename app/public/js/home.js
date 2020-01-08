@@ -33,31 +33,34 @@ menu[1].onclick = function(){
         document.querySelector(".container").innerHTML = obj.responseText;
 
             
-            /* verMais = document.querySelectorAll('.info');
+           /*  verMais = document.querySelectorAll('.info');
             var testeObj = new XMLHttpRequest(); 
             for (var i=0;i<verMais.length;i++){
                 verMais[i].onclick = function(elemento){  
+                    idContato = elemento.target.id;
                      testeObj.onreadystatechange = function() {      
                         if (testeObj.readyState == 4 && testeObj.status == 200) {
-                            document.querySelector(".absort").onclick = function(){
-                                document.querySelector(".absort").style.display = "none";   
+                            window.onclick = function(event) {
+                                if (event.target == document.querySelector(".absort")) {
+                                    document.querySelector(".absort").style.display = "none";
+                                }
                             }
                             document.querySelector(".closes").onclick = function(){
                                 document.querySelector(".absort").style.display = "none";   
                             }
                             document.querySelector(".satis").innerHTML = testeObj.responseText;  
-                            document.querySelector(".absort").style.display = "block";     
+                            document.querySelector(".absort").style.display = "block";   
                         } 
                      }    
-                     testeObj.open("GET", "maisContato?maisContato="+elemento.target.id, true);
+                     testeObj.open("GET", "maisContato?maisContato="+idContato, true);
                      testeObj.send();                                          
                 }
             }
-
+ */
             //tirar o block do elemento absort
             //comentar o if da home ejs
             //mudar o elemento <a para div 
-             */
+             
             
 
         } 
@@ -69,6 +72,18 @@ menu[1].onclick = function(){
 menu[2].onclick = function(){
     window.location.href = "sair"; 
 }
+function addFuncoesMore(){
+    btao = document.querySelector('.newbtsout');
+    btao.onclick = function(){
+        campos = document.querySelectorAll('.advante');
+        for(var i=0;i<campos.length;i++){
+            campos[i].disabled = false;
+        }
+    }
+}
+if(document.querySelector('.newbtsout')!=undefined){
+    addFuncoesMore();
+}   
 window.onclick = function(event) {
     if (event.target == document.querySelector(".absort")) {
         document.querySelector(".absort").style.display = "none";
@@ -151,15 +166,3 @@ function botoesFuncoes(){
         
     }
 }
-function addFuncoesMore(){
-    btao = document.querySelector('.newbtsout');
-    btao.onclick = function(){
-        campos = document.querySelectorAll('.advante');
-        for(var i=0;i<campos.length;i++){
-            campos[i].disabled = false;
-        }
-    }
-}
-if(document.querySelector('.newbtsout')!=undefined){
-    addFuncoesMore();
-}   
