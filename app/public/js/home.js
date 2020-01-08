@@ -33,7 +33,7 @@ menu[1].onclick = function(){
         document.querySelector(".container").innerHTML = obj.responseText;
 
             
-           /*  verMais = document.querySelectorAll('.info');
+            verMais = document.querySelectorAll('.info');
             var testeObj = new XMLHttpRequest(); 
             for (var i=0;i<verMais.length;i++){
                 verMais[i].onclick = function(elemento){  
@@ -56,7 +56,7 @@ menu[1].onclick = function(){
                      testeObj.send();                                          
                 }
             }
- */
+ 
             //tirar o block do elemento absort
             //comentar o if da home ejs
             //mudar o elemento <a para div 
