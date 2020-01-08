@@ -81,10 +81,36 @@ UsuarioDAO.prototype.deletar = function(res,idContato,ObjectId){
         });
     });
 }
+UsuarioDAO.prototype.editarContato = function(res,dados,idContato,ObjectId){
+    this._conexao.connect('mongodb://localhost:27017/contatos',{useNewUrlParser : true, useUnifiedTopology : true},function(err,client){
+        db = client.db('contatos');
+        db.collection('contato').updateOne({_id : ObjectId(idContato)},
+        {
+            $set : {
+                nome : dados.nome,
+                sobrenome : dados.sobrenome,
+                idade : dados.idade,
+                email : dados.email,
+                cidade : dados.cidade,
+                redes : dados.redes,
+                
+                bairro : dados.bairro,
+                rua : dados.rua,
+                endereco : dados.endereco,
+                sexo : dados.sexo,
+                complementar : dados.complementar,
+                numeros : dados.numeros
+            }
+        }).then(function(erro,result){
+            res.redirect('home?adc=atualizado');
+        });  
+    });
+}
 
 UsuarioDAO.prototype.maisContato = function(res,idContato,ObjectId,qualModo){
     this._conexao.connect('mongodb://localhost:27017/contatos',{useNewUrlParser : true, useUnifiedTopology : true},function(err,client){
         db = client.db('contatos');
+        //esse if é o segundo modo de ver por pop up
         if(qualModo==true){
             db.collection('contato').find({_id : ObjectId(idContato)}).toArray(function(err,result){
                 res.render('maisContato',{erros : [],adc : '', maisContato : true, contato : result[0]});

@@ -25,6 +25,9 @@ module.exports = function(application){
     application.get('/deletar',function(req,res){
         application.app.controllers.home.deletar(application,req,res);
     });
+    application.post('/editarContato',function(req,res){
+        application.app.controllers.home.editarContato(application,req,res);
+    });
     //segundo uso da tela 'ver mais' - primeiro modo por parametro não precisa.
     application.get('/maisContato',function(req,res){
         application.app.controllers.home.maisContato(application,req,res);

@@ -4,6 +4,10 @@ module.exports.contatos = function(application,req,res){
         return;
     }else{
         if(req.query.maisContato!=undefined){
+            if(req.query.maisContato==''){
+                res.redirect('home');
+                return;
+            }
             modelUsuario = new application.app.models.UsuarioDAO(application.config.conexao);
             modelUsuario.maisContato(res, req.query.maisContato, application.config.conexao.ObjectId,false);
             return;
@@ -16,8 +20,6 @@ module.exports.contatos = function(application,req,res){
         res.render('home',{erros : [],adc : adc, maisContato : '', contato : ''});
     }
 }
-
-
 module.exports.adicionarContato = function(application,req,res){
     if(!req.session.acesso){
         res.redirect('index');
@@ -66,6 +68,21 @@ module.exports.sair = function(app,req,res){
         res.redirect('index');
     });
 }
+module.exports.editarContato = function(application,req,res){
+    if(!req.session.acesso){
+        res.redirect('index');
+        return;
+    }else{
+        modelUsuario = new application.app.models.UsuarioDAO(application.config.conexao);
+        idContato = req.query.maisContato;
+        dadosNovos = req.body;
+        if(JSON.stringify(dadosNovos)==="{}"){
+            res.redirect('home?adc=missdates');      
+        }else{
+            modelUsuario.editarContato(res,dadosNovos,idContato,application.config.conexao.ObjectId);
+        }
+    }
+} 
 //segundo uso da tela 'ver mais' - primeiro modo por parametro não precisa.
 module.exports.maisContato = function(application,req,res){
     if(!req.session.acesso){

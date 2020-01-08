@@ -27,7 +27,19 @@
 				<p style="color: black; text-align: center; font-size: 1.8em; background-color: rgb(179, 248, 183);">Contato apagado com sucesso</p>
 			</div>
         <% } %>
+        <% if(adc=='atualizado'){ %>
+			<div class="msg">
+				<p style="color: black; text-align: center; font-size: 1.8em; background-color: rgb(179, 248, 183);">Contato alterado com sucesso!</p>
+			</div>
+        <% } %>
+        <% if(adc=='missdates'){ %>
+			<div class="msg">
+				<p style="color: black; text-align: center; font-size: 1.8em; background-color: rgb(255, 200, 200);">Alguns campos não podem estar vazios</p>
+			</div>
+        <% } %>
             
+
+
          <% if(erros.length>0){ %>
             <div class="erros" style="background-color: rgba(255, 172, 172); color: black; font-size: 1.4em; padding: 2px;">
                 <ul>
@@ -81,37 +93,39 @@
         <div class="absort">
             <div class="blow">
                 <span class="closes"><span>X</span></span>
-                <div class="satis">
+                <input class="newbtsout" type="button" value="Deseja editar? Clique aqui">
+                <form action="editarContato?maisContato=<%=contato._id%>" method="POST" class="satis">
                     <div class="viewmore">
-                        <p><strong>Nome</strong>: <%=contato.nome%></p>
-                        <p><strong>Sobrenome</strong>: <%=contato.sobrenome%></p>
-                        <p><strong>Idade</strong>: <%=contato.idade%></p>
-                        <p><strong>Email</strong>: <%=contato.email%></p>
-                        <p><strong>Cidade</strong>: <%=contato.cidade%></p>
+                        <p><strong>Nome</strong>: <input disabled type="text" class="advante" name="nome" value="<%=contato.nome%>"></p>
+                        <p><strong>Sobrenome</strong>: <input disabled type="text" class="advante" name="sobrenome" value="<%=contato.sobrenome%>"</p>
+                        <p><strong>Idade</strong>: <input disabled type="text" class="advante" name="idade" value="<%=contato.idade%>"</p>
+                        <p><strong>Email</strong>: <input disabled type="text" class="advante" name="email" value="<%=contato.email%>"</p>
+                        <p><strong>Cidade</strong>: <input disabled type="text" class="advante" name="cidade" value="<%=contato.cidade%>"</p>
                         <% if(Array.isArray(contato.redes)){%>
                             <% for(var i=0;i<contato.redes.length;i++){ %>
-                                <p><strong>Redes</strong>: <%=contato.redes[i]%></p>
+                                <p><strong>Redes</strong>: <input disabled type="text" class="advante" name="redes" value="<%=contato.redes[i]%>"</p>
                             <% } %>
                         <% } else { %>
-                            <p><strong>Redes</strong>: <%=contato.redes%></p>
+                                <p><strong>Redes</strong>: <input disabled type="text" class="advante" name="redes" value="<%=contato.redes%>"</p>
                         <% } %>
                     </div>
                     <div class="viewmore">
-                        <p><strong>Bairro</strong>: <%=contato.bairro%></p>
-                        <p><strong>Rua</strong>: <%=contato.rua%></p>
-                        <p><strong>Endereço</strong>: <%=contato.endereco%></p>
-                        <p><strong>Sexo</strong>: <%=contato.sexo%></p>
-                        <p><strong>Complementar</strong>: <%=contato.complementar%></p>
+                        <p><strong>Bairro</strong>: <input disabled type="text" class="advante" name="bairro" value="<%=contato.bairro%>"</p>
+                        <p><strong>Rua</strong>: <input disabled type="text" class="advante" name="rua" value="<%=contato.rua%>"</p>
+                        <p><strong>Endereço</strong>: <input disabled type="text" class="advante" name="endereco" value="<%=contato.endereco%>"</p>
+                        <p><strong>Sexo</strong>: <input disabled type="text" class="advante" name="sexo" value="<%=contato.sexo%>"</p>
+                        <p><strong>Complementar</strong>: <input disabled type="text" class="advante" name="complementar" value="<%=contato.complementar%>"</p>
                         <% if(Array.isArray(contato.numeros)){%>
                             <% for(var i=0;i<contato.numeros.length;i++){ %>
-                                <p><strong>Numeros</strong>: <%=contato.numeros[i]%></p>
+                                <p><strong>Numeros</strong>: <input disabled type="text" class="advante" name="numeros" value="<%=contato.numeros[i]%>"</p>
                             <% } %>
                         <% } else { %>
-                            <p><strong>Numeros</strong>: <%=contato.numeros%></p>
+                            <p><strong>Numeros</strong>: <input disabled type="text" class="advante" name="numeros" value="<%=contato.numeros%>"</p>
                         <% } %>
-    
+                        <input class="newbts" type="submit" value="Salvar edições!">
                     </div>
-                </div>
+                </form>
+                
             </div>
         </div>
         <% } %>

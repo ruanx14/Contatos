@@ -53,6 +53,10 @@ menu[1].onclick = function(){
                      testeObj.send();                                          
                 }
             }
+
+            //tirar o block do elemento absort
+            //comentar o if da home ejs
+            //mudar o elemento <a para div 
              */
             
 
@@ -147,23 +151,15 @@ function botoesFuncoes(){
         
     }
 }
-/* 
-
-
-db.contato.find({   $or:[  {nome : /^a/},{email : /^a/},{sobrenome : /^a/}   ]    });
-
-db.things.find( {
-    $and : [
-             { 
-               $or : [ 
-                       {"first_name" : "john"},
-                       {"last_name" : "john"}
-                     ]
-             },
-             { 
-               "Phone":"12345678"
-             }
-           ]
-  } ) 
-  
-  */
+function addFuncoesMore(){
+    btao = document.querySelector('.newbtsout');
+    btao.onclick = function(){
+        campos = document.querySelectorAll('.advante');
+        for(var i=0;i<campos.length;i++){
+            campos[i].disabled = false;
+        }
+    }
+}
+if(document.querySelector('.newbtsout')!=undefined){
+    addFuncoesMore();
+}   
